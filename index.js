@@ -15,7 +15,7 @@ function termekekmegjelenit(){
     let lista = "";
     products.forEach(item => {
         const row = `<div>
-                        ${item.nev} Ár: ${item.price}Ft
+                        ${item.nev} Ár: ${item.price} Ft
                         <button onclick="myCart.addProduct(${item.id},1)">Kosárba</button>
                     </div>`
         lista+=row;
@@ -44,7 +44,7 @@ class cart{
         document.getElementById('kosar').innerHTML= tartalom;
     }
 
-    viewCart(){
+    /*viewCart(){
         const displayItems = this.items.map (item =>{
             return{
              id : item.product.id,
@@ -52,13 +52,13 @@ class cart{
              quantity : item.quantity
             }
             })
-        console.table(displayItems)
-    }
+        
+    }*/
     addProduct(productId, quantity = 1){
         const product = products.find( p => p.id === productId)
         this.items = [...this.items, {product, quantity} ]
         this.render()
-        console.log("asd")
+        
     }
     removeProduct(productId){
         const product = products.find( p => p.id === productId)
