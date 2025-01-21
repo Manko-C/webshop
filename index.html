@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SigmaÁruház</title>
+    <script src="index.js" defer></script>
+    <style>
+        .item{
+            width: 550px;
+            height: 250px;
+            
+        }
+        img{
+            width: 250px;
+            height: 150px;
+        }
+        .sor{
+            display: flex;
+        }
+        #kosar{
+            background-color: bisque;
+            width: 100%;
+            height: auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="sor">
+        <div class="item" id="Kuka">
+            <h4>Medve kuka</h4>
+            <span class="ar">Ár:25 000 Ft </span>
+            <img src="https://m.media-amazon.com/images/I/51q9dravKlL._UXNaN_FMjpg_QL85_.jpg">
+            <button id="gomb">Kosárba rakom</button>
+        </div>
+        <div class="item" id="TV">
+            <h4>Philips 4k Ambilight TY</h4>
+            <span class="ar">Ár:50 000 Ft </span>
+            <img src="https://images.philips.com/is/image/philipsconsumer/b6a49b5fde77452baa9aafe200fbceab?$pnglarge$&wid=1250">
+            <button  >Kosárba rakom</button>
+        </div>
+        <div class="item" id="DVD">
+            <h4>Top Gun DvD</h4>
+            <span class="ar">Ár:4500 Ft </span>
+            <img src="https://cdn.myshoptet.com/usr/www.blu-shop.cz/user/shop/big/14872-1_top-gun--maverick--dvd.png?63db6c21">
+            <button>Kosárba rakom</button>
+        </div>
+    </div>
+    <div id="kosar">
+
+    </div>
+</body>
+</html>
