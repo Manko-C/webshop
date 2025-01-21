@@ -1,5 +1,5 @@
 const kosar = document.getElementById("kosar");
-const gomb = document.getElementById("gomb");
+const termekek = document.getElementById("termekek");
 const products = [
     {id: 1,
     nev: "Kuka",
@@ -11,11 +11,39 @@ const products = [
     nev: "DVD",
     price: 4500,}
 ]
+function termekekmegjelenit(){
+    let lista = "";
+    products.forEach(item => {
+        const row = `<div>
+                        ${item.nev} Ár: ${item.price}Ft
+                        <button onclick="myCart.addProduct(${item.id},1)">Kosárba</button>
+                    </div>`
+        lista+=row;
+    });
+    return lista;
+}
+
+function kosarmegjelenit(){
+    myCart.render();
+}
 
 class cart{
     constructor(){
         this.items = []
     }
+    render(){
+        let tartalom=""
+        if(this.items.length===0){
+            tartalom = 'A kosár üres';
+        }
+        else{
+            this.items.forEach( item => {
+                tartalom +=`${item.product.nev},${item.quantity}db<br>`
+            })
+        }
+        document.getElementById('kosar').innerHTML= tartalom;
+    }
+
     viewCart(){
         const displayItems = this.items.map (item =>{
             return{
@@ -29,6 +57,8 @@ class cart{
     addProduct(productId, quantity = 1){
         const product = products.find( p => p.id === productId)
         this.items = [...this.items, {product, quantity} ]
+        this.render()
+        console.log("asd")
     }
     removeProduct(productId){
         const product = products.find( p => p.id === productId)
@@ -45,7 +75,7 @@ class cart{
         this.items.forEach( item => vegosszeg += (item.product.price)*(item.quantity))
         return(vegosszeg)
     }
-    kosaram(){
+    /*kosaram(){
         gomb.addEventListener('click', function(){
             
             let div = document.createElement("div");
@@ -56,16 +86,17 @@ class cart{
             div.style.height = '250px'
             div.style.border = '1px solid black'
             myCart.addProduct(this)
-            
+
             div.appendChild(h4, span, spanOsszeg);
             document.body.appendChild(div)
     
         })
         
-    }
+    }*/
 }
 
 const myCart = new cart();
-myCart.kosaram();
+document.getElementById("termekek").innerHTML=termekekmegjelenit()
+//myCart.kosaram();
 
 
